@@ -64,18 +64,25 @@ export async function POST(req: NextRequest) {
         messages: ChatCompletionMessageParam[]
     }
 
-    const filteredMessages = filterMessages(messages)
+    const systemPrompts = messages.filter(
+        (message) => message.role === "system",
+    )
+    const filteredMessages = messages
+        .filter((message) => message.role !== "system")
+        .slice(-2)
+
+    const goodMessages = [...systemPrompts, ...filteredMessages]
 
     if (filteredMessages.length !== messages.length) {
         console.log("Filtered from:", messages)
-        console.log("To:", filteredMessages)
+        console.log("To:", goodMessages)
     }
 
     const response = await openai.chat.completions.create({
         // model: "accounts/fireworks/models/llama-v2-70b-chat",
         model: "gpt-4",
         stream: true,
-        messages: filteredMessages,
+        messages: goodMessages,
         temperature: 0.75,
         frequency_penalty: 1 / 0.85,
         top_p: 1,
