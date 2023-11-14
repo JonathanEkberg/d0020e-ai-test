@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+    web:
+        container_name: llama-gpt
+        image: llama:latest
+        ports:
+            - 3000:3000
+        restart: on-failure:5
+        env_file:
+            - .env
+        volumes:
+            - ./models:/app/models:ro
+        build:
+            dockerfile: ./Dockerfile
+            context: .
