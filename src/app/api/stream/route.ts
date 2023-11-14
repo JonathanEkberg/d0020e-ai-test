@@ -18,7 +18,7 @@ import { llamaContext, llamaModel } from "@/app/lib/llama/model"
 // //     // https://github.com/abetlen/llama-cpp-python/tree/main#web-server
 // //     baseURL: "https://api.fireworks.ai/inference/v1",
 // //     // Needs to be set to something otherwise it crashes
-// //     apiKey: "QstqVPKtXVa6IxyLh4FsKebbtJ83wqn9Eu5cjFgFjwJ54U5I",
+// //     apiKey: "************************************************",
 // // })
 
 // function filterMessages(
