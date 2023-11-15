@@ -36,7 +36,10 @@ export function useAutoScroll(
                 scrollTop < 0 &&
                 Math.abs(scrollTop) < SCROLL_MARGIN
             ) {
-                parentEl.scrollTop = parentEl.scrollHeight
+                parentEl.scrollTo({
+                    top: parentEl.scrollHeight,
+                    behavior: "smooth",
+                })
             }
         })
 

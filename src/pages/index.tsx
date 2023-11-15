@@ -55,10 +55,9 @@ export default function Home() {
         setTimeout(function () {
             const el = document.getElementById(SCROLL_LIST_PARENT_ID)
             if (el) {
-                // el.scrollTop = el.scrollHeight
-                el.scrollTo({ top: el.scrollHeight, behavior: "instant" })
+                el.scrollTo({ top: el.scrollHeight, behavior: "smooth" })
             }
-        }, 500)
+        }, 100)
     }
 
     return (
@@ -145,10 +144,7 @@ export default function Home() {
                         </ul>
                     </div>
                     <form
-                        onSubmit={(s: React.FormEvent<HTMLFormElement>) => {
-                            handleSubmit(s)
-                            forceBottom()
-                        }}
+                        onSubmit={handleSubmit}
                         className="w-full place-items-center flex items-center gap-2 pb-4"
                     >
                         {/* <input */}
