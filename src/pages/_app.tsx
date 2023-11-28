@@ -45,6 +45,11 @@ export default function LlamaApp({ Component, pageProps }: AppProps) {
                     primaryColor: "emerald",
                     primaryShade: { dark: 6, light: 6 },
                     components: {
+                        Title: {
+                            defaultProps(theme) {
+                                return { color: "gray.1" }
+                            },
+                        },
                         Input: {
                             styles(theme, params, context) {
                                 return {

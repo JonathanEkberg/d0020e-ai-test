@@ -5,7 +5,7 @@ import { ChatCompletionMessageParam, Models } from "openai/resources/index.mjs"
 const openai = new OpenAI({
     // Local Open-AI API running Llama-2 13b-chat model using
     // https://github.com/abetlen/llama-cpp-python/tree/main#web-server
-    baseURL: "http://localhost:8000/v1",
+    baseURL: "http://127.0.0.1:8000/v1",
     // Needs to be set to something otherwise it crashes
     apiKey: "",
 })

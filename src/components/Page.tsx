@@ -1,3 +1,4 @@
+import { Box } from "@mantine/core"
 import clsx from "clsx"
 import { Inter } from "next/font/google"
 import React from "react"
@@ -9,5 +10,21 @@ interface PageProps {
 }
 
 export function Page({ children }: PageProps) {
-    return <div className={inter.className}>{children}</div>
+    return (
+        <Box
+            component="main"
+            sx={(theme) => ({
+                backgroundImage: theme.fn.radialGradient(
+                    theme.colors.bluegray[8],
+                    theme.colors.bluegray[9],
+                ),
+            })}
+            className={clsx(
+                inter.className,
+                "w-screen h-screen grid place-items-center",
+            )}
+        >
+            {children}
+        </Box>
+    )
 }
